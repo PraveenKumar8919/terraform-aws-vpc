@@ -17,4 +17,6 @@ This module can be used to create following resources. We are using 2 high AZ in
 * Adding the peering route in default VPC, if user don't provide acceptor VPC explicitly.
 * Adding the peering routes in public, private and database route tables
 
+# Outputs
+
 * outputs can be modified as per user requirements.
