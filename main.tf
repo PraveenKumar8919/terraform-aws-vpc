@@ -94,7 +94,7 @@ resource "aws_route_table" "public" {
     var.common_tags,
     var.public_route_table_tags,
     {
-      Name = "${local.name}-prublic"
+      Name = "${local.name}-public"
     }
   )
 }
@@ -125,19 +125,19 @@ resource "aws_route_table" "database" {
   )
 }
 
-resource "aws_route" "public" {
+resource "aws_route" "public_route" {
   route_table_id            = aws_route_table.public.id
   destination_cidr_block    = "0.0.0.0/0"
   gateway_id = aws_internet_gateway.gw.id
 }
 
-resource "aws_route" "private" {
+resource "aws_route" "private_route" {
   route_table_id            = aws_route_table.private.id
   destination_cidr_block    = "0.0.0.0/0"
   nat_gateway_id = aws_nat_gateway.main.id 
 }
 
-resource "aws_route" "database" {
+resource "aws_route" "database_route" {
   route_table_id            = aws_route_table.database.id
   destination_cidr_block    = "0.0.0.0/0"
   nat_gateway_id = aws_nat_gateway.main.id 
